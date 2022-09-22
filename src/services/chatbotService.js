@@ -85,8 +85,10 @@ let sendMessage = (sender_psid, response) => {
                 "json": request_body
             }, (err, res, body) => {
                 if (!err) {
+                    console.log("message sent!")
                     resolve('message sent!')
                 } else {
+                    console.log("Unable to send message ")
                     reject("Unable to send message:" + err);
                 }
             });
