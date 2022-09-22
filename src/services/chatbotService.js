@@ -78,8 +78,15 @@ let sendMessage = (sender_psid, response) => {
             };
 
             // Send the HTTP request to the Messenger Platform
+            // request({"https://graph.facebook.com/v15.0/me/messages
+            //     ?recipient={'id':'PSID'}
+            //     &messaging_type=RESPONSE
+            //     &message={'text':'hello,world'}
+            //     &access_token=PAGE-ACCESS-TOKEN
+            // })
+
             request({
-                "uri": "https://graph.facebook.com/v15.0/me/messages",
+                "uri": "https://graph.facebook.com/v2.6/me/messages",
                 "qs": { "access_token": PAGE_ACCESS_TOKEN },
                 "method": "POST",
                 "json": request_body
