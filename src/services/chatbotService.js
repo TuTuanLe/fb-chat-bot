@@ -13,8 +13,9 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
             let username = await homepageService.getFacebookUsername(sender_psid);
             //send text message
             let response1 = {
-                "text": `Hi ${username}! Welcome to Tech Shop Haryphamdev, where you will find what you need.`
+                "text": `Hi ${username}! hello every one, where you will find what you need.`
             };
+            console.log(response1);
 
             //send an image
             let response2 = {
