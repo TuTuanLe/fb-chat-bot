@@ -15,7 +15,6 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
             let response1 = {
                 "text": `Hi ${username}! hello every one, where you will find what you need.`
             };
-            console.log(response1);
 
             //send an image
             let response2 = {
@@ -80,7 +79,7 @@ let sendMessage = (sender_psid, response) => {
 
             // Send the HTTP request to the Messenger Platform
             request({
-                "uri": "https://graph.facebook.com/v2.10/me/messages",
+                "uri": "https://graph.facebook.com/v15.0/me/messages",
                 "qs": { "access_token": PAGE_ACCESS_TOKEN },
                 "method": "POST",
                 "json": request_body
