@@ -3,7 +3,8 @@ import homepageService from "../services/homepageService";
 import chatbotService from "../services/chatbotService";
 import templateMessage from "../services/templateMessage";
 
-const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 let getHomePage = (req, res) => {
     let facebookAppId = process.env.FACEBOOK_APP_ID;
@@ -14,7 +15,7 @@ let getHomePage = (req, res) => {
 
 let getWebhook = (req, res) => {
     // Your verify token. Should be a random string.
-    let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+  
 
     // Parse the query params
     let mode = req.query['hub.mode'];
@@ -45,6 +46,7 @@ let postWebhook = (req, res) => {
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function (entry) {
+
             //check the incoming message from primary app or not; if secondary app, exit
             if (entry.standby) {
                 //if user's message is "back" or "exit", return the conversation to the bot
@@ -66,6 +68,7 @@ let postWebhook = (req, res) => {
 
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
+            console.log("Sender_psid: ",sender_psid)
 
             // Check if the event is a message or postback and
             // pass the event to the appropriate handler function
