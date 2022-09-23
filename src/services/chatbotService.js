@@ -88,10 +88,20 @@ let sendMessage = (sender_psid, response) => {
 
 
             request({
-                "uri": "https://graph.facebook.com/v15.0/me/messages",
-                "qs": { "access_token": PAGE_ACCESS_TOKEN },
-                "method": "POST",
-                "json": request_body
+                uri: `https://graph.facebook.com/v15.0/me/messages?access_token: ${PAGE_ACCESS_TOKEN }`,
+                headers: {
+                    'Content-Type': 'application/json',
+                  },
+                method: "POST",
+                body: JSON.stringify({
+                    messaging_type: 'RESPONSE',
+                    recipient: {
+                      id: sender_psid,
+                    },
+                    message: {
+                        response,
+                    },
+                  }),
             }, (err, res, body) => {
                 if (!err) {
                     console.log("message sent!")
