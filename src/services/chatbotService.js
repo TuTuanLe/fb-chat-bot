@@ -85,11 +85,13 @@ let sendMessage = (sender_psid, response) => {
             //     &access_token=PAGE-ACCESS-TOKEN
             // })
 
+            const uri = "https://graph.facebook.com/v2.6/me/messages",
+                qs= { "access_token": PAGE_ACCESS_TOKEN },
+                method="POST",
+                json=request_body;
+
             request({
-                "uri": "https://graph.facebook.com/v2.6/me/messages",
-                "qs": { "access_token": PAGE_ACCESS_TOKEN },
-                "method": "POST",
-                "json": request_body
+                uri
             }, (err, res, body) => {
                 if (!err) {
                     console.log("message sent!")
