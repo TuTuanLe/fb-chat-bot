@@ -105,10 +105,10 @@ let sendMessage = (sender_psid, response) => {
             }, (err, res, body) => {
                 if (!err) {
                     console.log("message sent!")
-                    // resolve('message sent!')
+                    resolve('message sent!')
                 } else {
                     console.log("Unable to send message ")
-                    // reject("Unable to send message:" + err);
+                    reject("Unable to send message:" + err);
                 }
             });
         } catch (e) {
