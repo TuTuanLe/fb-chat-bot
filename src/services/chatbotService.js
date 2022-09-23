@@ -94,7 +94,7 @@ let sendMessage = (sender_psid, response) => {
                   },
                 method: "POST",
                 body: JSON.stringify({
-                    messaging_type: 'RESPONSE',
+                    // messaging_type: 'RESPONSE',
                     recipient: {
                       id: sender_psid,
                     },
